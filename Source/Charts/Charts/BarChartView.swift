@@ -180,4 +180,11 @@ open class BarChartView: BarLineChartViewBase, BarChartDataProvider
     
     /// - returns: `true` if drawing shadows (maxvalue) for each bar is enabled, `false` ifnot
     open var isDrawBarShadowEnabled: Bool { return drawBarShadowEnabled }
+    
+    open func configureGradient(from color1: UIColor, to color2: UIColor, direction: GradientDirection) {
+        guard let renderer = renderer as? BarChartRenderer else { return }
+        renderer.gradientColorStart = color1
+        renderer.gradientColorEnd = color2
+        renderer.gradientDirection = direction
+    }
 }
